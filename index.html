@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">   
+    <meta charset="UTF-8">
+    <title>달바(d'Alba)</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" herf="../회원가입/join.css">
+    <script src="https://kit.fontawesome.com/fcc499ddc0.js" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    
+<style>
+#wrap {background: #111;}
+header{width: 100%;}   
+.logo {position: relative; display: inline; left: 960px;}
+.logo > h1 > img {position:absolute; margin-top: 50px; z-index: 10;}
+
+
+#bg {width: 100%; position: relative; _top: -150px; object-fit: cover; _height:1019px;}
+video::controls{display: none;}  
+
+#m_menu {display: none;}
+#menu {width: 30%; position: absolute; top: 50px; right: 50px; z-index: 10;}
+#menu>.gnb_btn {display: none;}
+#menu>ul {width: 100%;}
+#menu:after {content: ''; display: block; clear: both;}
+#menu>ul>li {float: left; text-align: center; width: 25%;  line-height: 40px; color: #a39b86; font-weight: bold; cursor: pointer; position: relative;}
+    
+    ul.sub {width: 100%;}
+        ul.sub>li {width: 100%;}
+       
+        ul.sub>li>a {display: block; text-align: center; padding: 5px 0; color: #fff;}
+    ul.sub>li>a:hover {color: #000; background-color: #fff; opacity: 0.2;}
+    
+    section {width: 100%;}
+    section>div {background: #111;}
+    #article1 {float: left; width: 50%;}
+    #article2 {position: relative; width: 50%; float: right; opacity: 0; transition: 3s; z-index: 10;}
+    #article2>h1 {position: absolute; top: 140px;left: 240px; color: #fff; font: bold 48px Haansoft Batang;}
+    #article2>p {position: absolute; top: 250px; left: 240px; color: #fff; text-align: center; font:24px Haansoft Batang; opacity: 0.9;}
+    #article3 {position: relative; width: 100%; float: left;  }
+    #article3>h1 {position: absolute; top: 140px; left: 240px; color: #a39b86; font: bold 30px/1.3 Haansoft Batang;}
+    #article3>h2 {position: absolute; top: 250px; left: 240px; color: #fff; font: bold 30px/1.2 Haansoft Batang;  opacity: 0.9;}
+    #article3>p>a {position: absolute; top: 350px; left: 240px; color: #fff; font:14px Haansoft Batang;  opacity: 0.9;}
+    #article3>p>a>img {position: absolute; top:-5px;}
+    #article3>img {float: right; width: 50%; height:600px; }
+    #article3>.pick {opacity: 0; transition: 3s;}
+
+    #article4 {position: relative; width: 100%; float: right; background: #fbf6eb;}
+    #article4>img {transition: 3s;}
+    #article4>h2 {position: absolute; top: 230px; right: 640px; color: #c0a764; font: bold 24px/1.4 Haansoft Batang;}
+    #article4>h1 {position: absolute; top: 300px; right: 253px;  font: bold 34px/1.2 Myriad Pro; color: #111;}
+    #article4>p {position: absolute; top: 420px;right: 564px; color: #837f7f; font:18px BM DoHyeon; font-weight: bold; opacity: 0.8;}
+    
+    #article5 {width: 100%; background: url(img/ibg.jpg)no-repeat; z-index: 100; background-size: cover; opacity: 0.7; overflow: hidden;}
+    #article5>p {position: relative; text-align: center; color: #fff; font:26px/13 Haansoft Batang;}
+    #article5 > .image {width:55%; position: relative; margin: 0 auto; background: none;}
+    #article5 img {margin-top: -100px; margin-bottom: 200px; width: 250px; height: 250px;}
+    #article5 img:hover {opacity: 0.6;}
+    
+    footer {position: relative; background: #111;}
+    footer .l_footer {float: left; position: absolute; top: 5px; left: 350px; width: 40px;}
+    footer .r_footer {float: right; position: absolute; right: 350px;}
+    footer>p>a {display: block; text-align: center; margin-top: 50px; font: 30px Haansoft Batang; color: #fff;}
+    footer>.p1 {margin: 0; text-align: center; font: 150px Book Antiqua; color: #383636;}
+
+    #article2.on {opacity: 1;}
+    #article3>.pick.on {opacity: 1;}
+    #article4>img.on {transform: translateX(140px);}
+    
+/*    태블릿용*/
+    @media all and (min-width:801px) and (max-width:1565px){
+        header {
+            position: relative;
+            width: 100%;
+            height: none;
+        }
+        .logo {
+            
+            display: block;
+            width:100%; 
+            left: 0;
+        }
+        .logo h1 img {
+           margin-top: 10px;
+            margin-left: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+       
+        #menu {
+            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #menu>ul {
+            width: 100%;
+            text-align: center;
+        }
+        #bg{width: 100%;}
+        #article1 {
+            width: 100%;
+        }
+        #article1>img {
+            width: 100%;
+        }
+        #article2 {
+            width:0%;
+            float: none;
+            position: relative;
+            display: none;
+        }
+        #article2>h1 { 
+            position: absolute;
+            width: 237px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 22px;
+            font-size: 35px; 
+        }
+        #article2>p {
+            position: absolute;
+            width: 190px;
+            left: 50%;
+            transform:translateX(-50%);
+            top: 68px;
+            font-size: 14px;
+        }
+        #article3 {
+            position: relative;
+            width: 100%;
+        }
+        #article3>.pick {
+            width: 100%;
+            height: 540px;
+        }
+        #article3>h1 {
+            width: 293px;
+            position: absolute;
+            left: 540px;
+            top: 102px;
+            font-size: 25px;
+        }
+        #article3>h2 {
+            width: 290px;
+            position: absolute;
+            left: 540px;
+            top: 230px;
+            font-size: 20px;
+        }
+        #article3>p>a {
+           width: 290px;
+            position: absolute;
+            left: 540px;
+            top: 320px;
+            font-size: 14px;
+        }
+        #article4{
+            width: 100%;}
+        #article4>img {
+            width: 100%;
+        }
+        
+    #article5 {
+        width: 100%;
+    }
+    #article5>.image {
+        width: 70%;
+        text-align: center;
+    }
+}    
+/*    모바일용*/
+    @media all and (max-width:800px){
+        
+        header {
+            height: 40px;
+            background: #fff;
+        }
+        .logo {
+            display: block;
+            margin-top: 10px;
+            width:100%; 
+            left: 0;
+        }
+        .logo h1 img {
+            margin-top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #m_menu {
+            display: block;
+        }
+        #m_menu .gnb_btn {
+            position: relative;
+            top: 5px;
+            left: 1px;
+        }
+        #m_menu>a>i {
+            position: absolute;
+            top: 12px;
+            right: 5px;
+            font-size: 24px;
+        }
+        #menu ul {
+            display: none;
+        }
+        
+        #bg {display: none;}
+  
+        section{
+            width: 100%;
+        }
+        section img {
+            width: 100%;
+ 
+        }
+        #article1 {
+            width:100%;
+        }
+        
+        #article2 {
+            width:100%;
+            float: none;
+            position: relative;
+            display: none;
+        }
+        #article2>h1 { 
+            position: absolute;
+            width: 237px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 22px;
+            font-size: 35px; 
+        }
+        #article2>p {
+            position: absolute;
+            width: 190px;
+            left: 50%;
+            transform:translateX(-50%);
+            top: 68px;
+            font-size: 14px;
+        }
+        #article3 {
+            width: 100%;
+        }
+        #article3>h1 {
+            width: 174px;
+            position: absolute;
+            left: 288px;
+            top: 42px;
+            font-size: 20px;
+        }
+        #article3>h2 {
+            width: 180px;
+            position: absolute;
+            left: 288px;
+            top: 140px;
+            font-size: 15px;
+        }
+        #article3>p>a {
+            width: 100px;
+            position: absolute;
+            left: 288px;
+            top: 200px;
+            font-size: 11px;
+        }
+        #article3>p>a>img {
+            width: 45px;
+        }
+        #article3>.pick{
+            width: 100%;
+            height: 380px;
+        }
+        #article4 {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        #article4>h2 {
+            width: 171px;
+            position: absolute;
+            left: 5px; 
+            top: 142px;
+        }
+        #article4>h1 {
+            width: 345px;
+            position: absolute;
+            left: 5px;
+            top: 190px;
+            font-size: 21px;
+        }
+        #article4>p {
+            width: 192px;
+            position: absolute;
+            left: 5px;
+            top: 262px;
+            font-size: 14px;
+        }
+        #article5 {
+            width: 100%;
+        }
+        #article5>p{
+            font-size: 16px;
+        }
+        #article5>.image {
+           width: 100%;
+           text-align: center;
+           margin-top: 15px;
+            
+        }
+        #article5 img {
+           width: 110px;
+           height: 110px;
+           margin-bottom: 100px;
+        }
+        footer .l_footer {
+            width: 5%;
+            left: 100px;
+        }
+        footer .r_footer {
+            width: 11px;
+            right: 100px;
+        }
+        footer>p>a {
+            font-size: 18px;
+            margin-top: 22px;
+        }
+        footer .p1 {
+            font-size: 60px;
+        }
+  }
+</style>
+    
+    <script>
+        $(document).ready(function(){
+            $("ul.sub").hide();
+            $("#menu>ul>li").mouseenter(function(){
+                var i = $(this).index();
+                $("#menu>ul>li>ul").eq(i).stop().slideDown(300);
+            });
+            $("#menu>ul>li").mouseleave(function(){
+                $("ul.sub").stop().slideUp(300);
+            });
+            
+             var a1 = $("#bg").offset().top;
+             var a2 = $("#article2").offset().top;
+             var a3 = $("#article3").offset().top;
+             var a4 = $("#article4").offset().top;
+            
+            $(window).scroll(function(){
+              if($(this).scrollTop() >a1 ){
+                  $("#article2").addClass("on");
+              }else{
+                  $("#article2").removeClass("on");
+              }
+            });
+            $(window).scroll(function(){
+              if($(this).scrollTop() >a2){
+                  $("#article3>.pick").addClass("on");
+              }else{
+                  $("#article3>.pick").removeClass("on");
+              }
+            });
+            $(window).scroll(function(){
+              if($(this).scrollTop() >a3){
+                  $("#article4>img").addClass("on");
+              }else{
+                  $("#article4>img").removeClass("on");
+              }
+            });
+        });
+        
+	</script>
+</head>
+<body>
+<div id="wrap">
+<header>
+   <!--        로고-->
+    <div class="logo">
+       <h1><img src="img/logo.png" alt="logo"></h1>
+   </div>
+<!--   메뉴-->
+ <div id="m_menu">
+     <a href="#" class="gnb_btn"><img src="img/gnb_btn.png" alt=""></a>  
+       <a href="회원가입/join.html"><i class="fas fa-user"></i></a>
+ </div>
+  <div id="menu">
+   <ul class="sec">
+       <li>BRAND
+            <ul class="sub">
+                <li><a href="#">BRAND STORY</a></li>
+                <li><a href="#">Alba Trufi Srl</a></li>
+            </ul>       
+       </li>
+       <li>PRODUCT
+           <ul class="sub">
+               <li><a href="#">SKINCARE</a></li>
+               <li><a href="#">MAKE-UP</a></li>
+               <li><a href="#">CLEANSERS</a></li>
+           </ul>
+       </li>
+       <li>STORE
+           <ul class="sub">
+               <li><a href="#">STORE</a></li>
+           </ul>
+       </li>
+       <li>EVENT
+           <ul class="sub">
+               <li><a href="#">진행중 이벤트</a></li>
+               <li><a href="#">당첨자 발표</a></li>
+           </ul>
+       </li>
+    </ul>   
+   </div>
+<!--   video-->
+   <video  loop autoplay muted id="bg">
+       <source src="img/bg.mp4" type="video/mp4">
+   </video>
+</header>
+<section>
+<div> 
+ <div id="article1">
+     <img src="img/main2.png" alt="">
+ </div>
+ <div id="article2">
+     <h1>d'Alba di Italy</h1>
+     <p>Italy의 청정지역인<br>Alba의 깨끗함을 담았습니다.</p>
+ </div>
+</div>
+<div>
+ <div id="article3">
+     <h1>MD’s Pick<br>d’Alba Home Try Season2</h1>
+     <h2>메마르지 않는 보습력으로<br>촉촉하게 빛나는 광채피부 </h2>
+     <p><a href="#">무료체험하기<img src="img/btn_go_next.png" alt=""></a></p>
+     <img class="pick" src="img/img1.png" alt="">
+ </div>
+</div>
+<div>
+    <div id="article4">
+       <img class="obj" src="img/mist.jpg" alt="">
+        <h2>BEST SELLER</h2>
+        <h1>FIRST SPRAY SERUM<br>달바 화이트 트러블 퍼스트 스프레이</h1>
+        <p>사막같은 기내에서도 살아남은<br>#승무원 미스트 세럼</p>
+    </div>
+</div>
+<div>
+    <div id="article5">
+        <p>INSTAGRAM #dalba_piedmont</p>
+        <div class="image">
+            <img src="img/i1.jpg" class="img1" alt="">
+            <img src="img/i2.jpg" class="img2" alt="">
+            <img src="img/i4.jpg" class="img3" alt="">
+            <img src="img/i3.jpg" class="img4" alt="">
+        </div>
+    </div>
+</div>
+</section>
+<footer>
+   <img src="img/Instagram.png" class="l_footer" alt="">
+   <img src="img/btn_go_top.png" class="r_footer" alt="">
+    <p><a href="dAlba.html">HOME</a></p>
+    <p><a href="회원가입/join.html">JOIN</a></p>
+    <p><a href="#">BRAND</a></p>
+    <p><a href="#">PRODUCT</a></p>
+    <p><a href="#">STORE</a></p>
+    <p class="p1">d'Alba</p>
+</footer>
+</div>    
+</body>
+</html>
